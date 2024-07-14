@@ -1,0 +1,140 @@
+// GOOGLE FONTS
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&display=swap');
+
+// Variables ///////////////////////////////////////////////
+:root {
+  // Colors
+  --clr-primary-200-hsl: 229, 57%, 11%;
+  --clr-primary-500-hsl: 228, 56%, 26%;
+  --clr-primary-700-hsl: 228, 56%, 62%;
+  --clr-primary-900-hsl: 243, 100%, 92%;
+
+  --clr-secondary-300-hsl: 6, 100%, 80%;
+  --clr-secondary-600-hsl: 335, 100%, 65%;
+
+  --clr-neutral-500-hsl: 229, 7%, 55%;
+  --clr-neutral-900-hsl: 0, 0%, 100%;
+
+  // Font family
+  --ff-primary: 'Raleway', sans-serif;
+
+  // Font weights
+  --fw-regular: 400;
+  --fw-bold: 700;
+
+  // Font sizes
+  --fs-200: 0.75rem;
+  --fs-300: 0.875rem;
+  --fs-800: 2.5rem;
+
+  // Sizes
+  --size-unit: 1rem;
+  --size-200: calc(var(--size-unit) * 0.5);
+  --size-300: calc(var(--size-unit) * 0.625);
+  --size-400: calc(var(--size-unit) * 1);
+  --size-500: calc(var(--size-unit) * 1.25);
+  --size-600: calc(var(--size-unit) * 1.5);
+  --size-700: calc(var(--size-unit) * 1.875);
+  --size-800: calc(var(--size-unit) * 2);
+  --size-900: calc(var(--size-unit) * 2.5);
+  --size-lg: calc(var(--size-unit) * 3);
+  --size-xl: calc(var(--size-unit) * 3.25);
+}
+
+// Utilities ///////////////////////////////////////////////
+.u-bold {
+  font-weight: var(--fw-bold);
+}
+
+.u-uppercase {
+  text-transform: uppercase;
+}
+
+.u-fs-800 {
+  font-size: var(--fs-800);
+}
+
+.u-fs-200 {
+  font-size: var(--fs-200);
+}
+
+.u-primary-200 {
+  color: hsl(var(--clr-primary-200-hsl));
+}
+
+.u-neutral-500 {
+  color: hsl(var(--clr-neutral-500-hsl));
+}
+
+// Base ///////////////////////////////////////////////////
+body {
+  align-content: center;
+  background: url('../assets/design/bg-mobile.png');
+  background-size: cover;
+
+  @include respond(md) {
+    background: hsl(var(--clr-primary-200-hsl))
+      url('../assets/design/bg-desktop.png');
+    background-size: contain;
+    background-position: bottom;
+    background-repeat: no-repeat;
+  }
+}
+
+.logo {
+  max-width: 8.4375rem;
+
+  &__icon {
+    height: var(--size-900);
+    fill: hsl(var(--clr-neutral-900-hsl));
+  }
+}
+
+.icon:not(.logo__icon) {
+  aspect-ratio: 1;
+}
+
+.progressbar {
+  --progress-value: 75%;
+  --progressbar-padding: 0.1875rem;
+  --bar-height: 0.875rem;
+  --bar-padding: 0.125rem;
+
+  padding: var(--progressbar-padding);
+  background-color: hsl(var(--clr-primary-200-hsl), 0.5);
+
+  &,
+  & *,
+  & *::before {
+    border-radius: 100vmax;
+  }
+
+  &__bar {
+    position: relative;
+    height: var(--bar-height);
+    width: var(--progress-value);
+    padding: var(--bar-padding);
+    background: linear-gradient(
+      to right,
+      hsl(var(--clr-secondary-300-hsl)),
+      hsl(var(--clr-secondary-600-hsl))
+    );
+
+    &::before {
+      content: '';
+      position: absolute;
+      right: var(--bar-padding);
+      width: 0.625rem;
+      aspect-ratio: 1;
+      background-color: hsl(var(--clr-neutral-900-hsl));
+    }
+  }
+}
+
+// Typography ////////////////////////////////////////////
+body {
+  color: hsl(var(--clr-primary-900-hsl));
+  font-family: var(--ff-primary);
+  font-size: var(--fs-300);
+  font-weight: var(--fw-regular);
+}

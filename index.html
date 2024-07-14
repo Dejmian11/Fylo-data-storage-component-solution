@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon/favicon-32x32.png"
+    />
+
+    <script type="module" src="main.js"></script>
+
+    <title>Frontend Mentor | Fylo data storage component</title>
+  </head>
+  <body class="grid">
+    <main class="content-grid">
+      <article class="fylo grid">
+        <div class="fylo-files grid">
+          <a href="/" class="logo">
+            <svg class="logo__icon icon">
+              <use xlink:href="assets/icons/sprite.svg#logo"></use>
+            </svg>
+          </a>
+
+          <nav>
+            <ul class="flex" role="list">
+              <li>
+                <a href="#" class="fylo-files__link" aria-label="document">
+                  <svg class="icon">
+                    <use
+                      xlink:href="assets/icons/sprite.svg#icon-document"
+                    ></use>
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="fylo-files__link" aria-label="my folder">
+                  <svg class="icon">
+                    <use xlink:href="assets/icons/sprite.svg#icon-folder"></use>
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="fylo-files__link" aria-label="upload file">
+                  <svg class="icon">
+                    <use xlink:href="assets/icons/sprite.svg#icon-upload"></use>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="fylo-data grid">
+          <p>You’ve used <span class="u-bold">815 GB</span> of your storage</p>
+
+          <div class="fylo-data__progressbar-box grid">
+            <div class="progressbar" role="progressbar" aria-valuenow="75">
+              <div class="progressbar__bar"></div>
+            </div>
+
+            <div class="even-columns u-bold u-fs-200">
+              <p>0 GB</p>
+              <p>1000 GB</p>
+            </div>
+          </div>
+
+          <div class="fylo-data__tooltip even-columns">
+            <p class="u-bold u-fs-800 u-primary-200">185</p>
+            <p class="u-uppercase u-bold u-fs-200 u-neutral-500">GB Left</p>
+          </div>
+        </div>
+      </article>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,94 @@
+.fylo {
+  @include respond(lg) {
+    --_content-spacing: var(--size-700);
+
+    grid-template-columns: 1fr 540px;
+    align-items: end;
+    min-width: 920px;
+  }
+
+  &-files,
+  &-data {
+    border-radius: var(--size-300);
+    background-color: hsl(var(--clr-primary-500-hsl));
+  }
+
+  &-files {
+    --_content-spacing: var(--size-800);
+    --content-padding: var(--size-900);
+
+    justify-content: start;
+    padding: var(--content-padding);
+    border-top-right-radius: 6rem;
+
+    &__link {
+      display: grid;
+      place-content: center;
+      height: var(--size-lg);
+      aspect-ratio: 1;
+      border-radius: var(--size-200);
+      background-color: hsl(var(--clr-primary-200-hsl));
+
+      & .icon {
+        height: var(--size-600);
+      }
+    }
+  }
+
+  &-data {
+    --content-padding-inline: var(--size-800);
+    --content-padding: var(--size-800) var(--content-padding-inline) 0;
+
+    position: relative;
+    padding: var(--content-padding);
+    text-align: center;
+
+    @include respond(lg) {
+      --content-padding: var(--size-900);
+
+      text-align: left;
+    }
+
+    &__progressbar-box {
+      --_content-spacing: var(--size-300);
+
+      @include respond(lg) {
+        --_content-spacing: var(--size-200);
+      }
+    }
+
+    &__tooltip {
+      --content-spacing: var(--size-200);
+      --content-padding: var(--size-400) var(--size-600);
+      --bg-color: hsl(var(--clr-neutral-900-hsl));
+
+      justify-self: center;
+      align-items: center;
+      gap: var(--content-spacing);
+      margin-bottom: -2.25rem;
+      padding: var(--content-padding);
+      border-radius: var(--size-300);
+      background-color: var(--bg-color);
+      line-height: 1;
+
+      @include respond(lg) {
+        position: absolute;
+        top: -2.9375rem;
+        right: var(--content-padding-inline);
+      }
+
+      &::after {
+        @include respond(lg) {
+          --size: 1.375rem;
+
+          content: '';
+          position: absolute;
+          right: 0;
+          bottom: calc(var(--size) * -0.9);
+          border: var(--size) solid transparent;
+          border-right: var(--size) solid var(--bg-color);
+        }
+      }
+    }
+  }
+}

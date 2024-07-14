@@ -1,0 +1,45 @@
+.content-grid {
+  --padding-inline: var(--size-600);
+  --content-max-width: 540px;
+
+  display: grid;
+  grid-template-columns:
+    minmax(var(--padding-inline), 1fr)
+    [content-start] min(
+      100% - (var(--padding-inline) * 2),
+      var(--content-max-width)
+    )
+    [content-end]
+    minmax(var(--padding-inline), 1fr);
+
+  @include respond(md) {
+    --content-max-width: 689px;
+  }
+
+  @include respond(lg) {
+    --content-max-width: 920px;
+  }
+}
+
+.content-grid > * {
+  grid-column: content;
+}
+
+.grid {
+  --_content-spacing: var(--content-spacing, var(--size-400));
+
+  display: grid;
+  gap: var(--_content-spacing);
+}
+
+.flex {
+  --_content-spacing: var(--content-spacing, var(--size-400));
+
+  display: flex;
+  gap: var(--_content-spacing);
+}
+
+.even-columns {
+  display: flex;
+  justify-content: space-between;
+}
